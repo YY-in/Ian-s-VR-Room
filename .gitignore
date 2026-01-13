@@ -1,0 +1,124 @@
+# ============ Unity核心文件 ============
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Gg]enerated/
+
+# Unity项目文件
+*.csproj
+*.unityproj
+*.slnclera
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# Unity资产备份
+*.backup
+*.backup[0-9]*
+*.backup.meta
+
+# 自动生成的Visual Studio文件
+.vs/
+.vscode/
+
+# ============ 大文件/资源文件 ============
+# 大型设计文件（考虑使用Git LFS）
+*.psd
+*.tga
+*.exr
+*.fbx
+*.obj
+*.blend
+*.ma
+*.mb
+
+# 音频视频文件
+*.wav
+*.mp3
+*.ogg
+*.mp4
+*.mov
+
+# ============ 系统文件 ============
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============ 项目特定忽略 ============
+# 开发测试文件
+/TestScenes/
+/TestBuilds/
+/Temp/
+/Debug/
+/ProfilerCaptures/
+
+# 本地配置文件
+config.local.json
+.env.local
+secrets.json
+
+# 第三方工具
+/AssetStoreTools/
+/ThirdParty/
+
+# ============ 包管理 ============
+[Pp]ackages/
+[Bb]uildArtifacts/
+
+# ============ 日志文件 ============
+*.log
+*.txt
+CrashReport-*.log
+
+# ============ 临时文件 ============
+*.tmp
+*.temp
+*.cache
+EOF
+
+# 2. 创建.gitattributes（统一换行符）
+cat > .gitattributes << 'EOF'
+# Unity二进制文件（作为二进制处理）
+*.unity binary
+*.prefab binary
+*.asset binary
+*.mat binary
+*.controller binary
+*.anim binary
+*.mask binary
+*.physicMaterial binary
+*.physicsMaterial2D binary
+*.flare binary
+*.fontsettings binary
+*.guiskin binary
+*.meta binary
+
+# 文本文件（统一为LF换行）
+*.cs text eol=lf
+*.shader text eol=lf
+*.cginc text eol=lf
+*.hlsl text eol=lf
+*.glslinc text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+*.asmdef text eol=lf
+
+# Git LFS大文件处理（如需启用）
+# *.psd filter=lfs diff=lfs merge=lfs -text
+# *.fbx filter=lfs diff=lfs merge=lfs -text
+# *.wav filter=lfs diff=lfs merge=lfs -text
