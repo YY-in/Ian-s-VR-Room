@@ -1,40 +1,5 @@
 # Ian-s-VR-Room
 
-## Features
-
-### Room Design
-- Designed room environment for VR experience
-
-### Locomotion Systems
-- **Turning Rig**: Enables user rotation in VR space
-- **Teleporting Rig**: Allows instant movement to designated locations
-
-## Locomotion Concepts
-
-### Types of Locomotion
-1. **Snap Turn**: Instant rotation by fixed angles (e.g., 30°, 45°)
-   - Reduces motion sickness by avoiding smooth rotation
-   - Provides quick directional changes
-
-2. **Continuous Turn**: Smooth, gradual rotation
-   - More natural feeling but can cause discomfort
-   - Adjustable rotation speed
-
-3. **Teleport**: Instant position change
-   - Minimizes simulator sickness
-   - Point-and-teleport interaction
-
-### Vection and Simulator Sickness
-- **Vection**: The sensation of self-motion induced by visual stimuli
-- **Simulator Sickness**: Discomfort caused by mismatch between visual motion and physical stillness
-- Mitigation strategies:
-  - Use snap turning instead of continuous rotation
-  - Implement teleportation for movement
-  - Provide comfort options for users
-
-### Teleportation Systems
-- **Teleportation Areas**: Large designated zones where users can teleport freely within bounds
-- **Teleportation Anchors**: Specific fixed points for precise teleportation destinations
 
 ## Hand Interaction Features
 
@@ -94,3 +59,57 @@ Different physics behaviors for VR objects:
    - Tracks hand/controller velocity
    - Smooth, predictable movement
    - Prevents object rotation unwinding
+
+## Hat Interaction System
+
+### New Features
+- **Added Hats**: Interactive hat objects that can be grabbed and manipulated
+- **Hang Hats on Hooks**: Place hats on wall-mounted hooks for storage
+- **Put Hats on Head**: Wear hats on the player's head in VR
+
+### Socket Interactors
+- **SocketInteractor Component**: Specialized XR interactor that holds objects at fixed positions
+- Acts as snap points for objects (hooks, head mount points)
+- Provides visual feedback when compatible objects are nearby
+- Supports automatic snapping when objects are released near the socket
+- Features:
+  - Configurable interaction layer masks for selective interactions
+  - Position and rotation offsets for perfect object alignment
+  - Visual indicators showing socket availability
+  - Automatic physics handling (kinematic when socketed)
+  - Hover detection for user feedback
+
+### Triggers to Detect Interaction
+- **OnTriggerInteraction Component**: Detects when objects enter/exit trigger zones
+- Supports tag and layer mask filtering for selective triggering
+- Provides Unity Events for flexible integration:
+  - **OnEnter**: Triggered when an object enters the trigger zone
+  - **OnStay**: Triggered while an object remains in the trigger zone
+  - **OnExit**: Triggered when an object leaves the trigger zone
+- Includes both parameterized events (with GameObject reference) and simple events
+- Useful for proximity-based interactions, zone detection, and context-aware behaviors
+- Debug mode for testing and troubleshooting
+
+### Interaction Layer Masks
+- **InteractionLayerHelper**: Utility class for managing XR Interaction Toolkit layer masks
+- Separates different types of interactions for cleaner logic:
+  - **Hook Layer** (Layer 1): For hanging objects on wall hooks
+  - **Head Layer** (Layer 2): For wearing objects on the player's head
+  - **Hand Layer** (Layer 3): For grabbing and holding objects
+  - **Default Layer** (Layer 0): General purpose interactions
+- Prevents unwanted interactions between incompatible objects
+- Allows precise control over which interactables work with which interactors
+- Benefits:
+  - Cleaner interaction logic and state management
+  - Prevents accidental or inappropriate interactions
+  - Enables context-specific behaviors (same object, different sockets)
+  - Easy configuration through inspector
+
+### Implementation Details
+- **HatInteraction Script**: Manages hat-specific behaviors and state
+  - Tracks current hat state (on head, on hook, in hand)
+  - Dynamically switches between interaction layers based on context
+  - Changes visual appearance based on state (optional material switching)
+  - Handles physics automatically (kinematic when socketed, dynamic when free)
+  - Supports both hook and head sockets with different behaviors
+  - Clean state management and proper event handling
