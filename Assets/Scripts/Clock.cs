@@ -28,7 +28,7 @@ public class Clock : MonoBehaviour
         secondHand.transform.localEulerAngles = new Vector3(90f+secondAngle, 0f, -90f);
 
 
-        // Debug.Log($"Time: {hours}:{minutes}:{seconds} | Angles - Hour: {hourAngle}, Minute: {minuteAngle}, Second: {secondAngle}");
+        //Debug.Log($"Time: {hours}:{minutes}:{seconds} | Angles - Hour: {hourAngle}, Minute: {minuteAngle}, Second: {secondAngle}");
 
 
     }

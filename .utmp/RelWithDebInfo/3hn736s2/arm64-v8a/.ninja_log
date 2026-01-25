@@ -1,0 +1,5 @@
+# ninja log v5
+536	683	7900212995074710	C:/Users/Yin/Desktop/Create-with-VR_U6/Create-with-VR_U6/VR Room Project/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3hn736s2/obj/arm64-v8a/libswappywrapper.so	78ac5f48b4878dfe
+1	534	7900212993611838	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	50b5950a86daf220
+0	448	7910404594277091	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	50b5950a86daf220
+449	776	7910404597524489	C:/Users/Yin/Desktop/Create-with-VR_U6/Create-with-VR_U6/VR Room Project/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3hn736s2/obj/arm64-v8a/libswappywrapper.so	78ac5f48b4878dfe
